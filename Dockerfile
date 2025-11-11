@@ -41,5 +41,5 @@ EXPOSE 7860
 HEALTHCHECK --interval=30s --timeout=10s --start-period=120s --retries=3 \
     CMD curl -f http://localhost:7860/ || exit 1
 
-ENTRYPOINT ["python3", "wgp.py"]
-CMD ["--listen", "0.0.0.0", "--port", "7860", "--share"]
+# FIX: wgp.py --listen flag doğru formatı
+CMD ["python3", "wgp.py", "--listen", "--server-name", "0.0.0.0", "--server-port", "7860", "--share"]
