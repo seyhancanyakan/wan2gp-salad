@@ -19,9 +19,10 @@ WORKDIR /workspace
 RUN python3 -m pip install --no-cache-dir --upgrade pip setuptools wheel
 
 # PyTorch NIGHTLY - RTX 5090 (sm_120) desteği için
+# cu121 nightly kullan (cu124 nightly repo yok)
 RUN pip install --no-cache-dir \
     --pre torch torchvision torchaudio \
-    --index-url https://download.pytorch.org/whl/nightly/cu124 && \
+    --index-url https://download.pytorch.org/whl/nightly/cu121 && \
     rm -rf ~/.cache/pip /tmp/*
 
 # WanGP kodu
